@@ -1,10 +1,10 @@
 package com.csv.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.env.Environment;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -13,7 +13,6 @@ import org.springframework.web.multipart.MultipartFile;
 import com.csv.model.ServiceResponse;
 import com.csv.service.ParserServiceImpl;
 
-@CrossOrigin("http://localhost:8081")
 @Controller
 @RequestMapping("/api/csv")
 public class CSVController {
@@ -23,6 +22,9 @@ public class CSVController {
 	
 	@Autowired
 	ParserServiceImpl parserService;
+	
+	@Autowired
+	Environment environment;
 
 	@PostMapping("/parse")
 	public ResponseEntity<ServiceResponse> csvParse(@RequestParam("csvfile") MultipartFile file){
@@ -39,5 +41,5 @@ public class CSVController {
 		    }
 		    message = "Please upload a csv file!";
 		    return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(new ServiceResponse(message));
-		    }
+		}
 	}
