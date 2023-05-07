@@ -3,7 +3,7 @@ server:
   
 spring:
   application:
-    name: scv-parser-client
+    name: csv-client
   datasource:
     url: jdbc:mysql://localhost:3306/proddb
     username: root
