@@ -1,4 +1,4 @@
-package com.csv.model;
+package com.tiger.read.model;
 
 public class PriceDetail {
 	

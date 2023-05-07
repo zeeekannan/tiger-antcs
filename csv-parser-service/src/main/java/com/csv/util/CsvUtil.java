@@ -21,7 +21,6 @@ public class CsvUtil {
 	            CSVFormat.DEFAULT.withFirstRecordAsHeader().withIgnoreHeaderCase().withTrim());) {
 
 	      List<PriceDetail> priceDetails = new ArrayList<>();
-
 	      Iterable<CSVRecord> csvRecords = csvParser.getRecords();
 
 	      for (CSVRecord csvRecord : csvRecords) {
@@ -32,7 +31,6 @@ public class CsvUtil {
 	              Integer.parseInt(csvRecord.get("price")),
 	              csvRecord.get("date")
 	            );
-
 	        priceDetails.add(PriceDetail);
 	      }
 

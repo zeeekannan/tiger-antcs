@@ -5,8 +5,6 @@ import java.util.List;
 import com.tiger.db.operation.model.PriceDetail;
 
 public interface DbService {
-
-
-	public String writeAll(List<PriceDetail> priceDetails);
-
+	public void writeAll(List<PriceDetail> priceDetails);
+	public List<PriceDetail> readAll();
 }
